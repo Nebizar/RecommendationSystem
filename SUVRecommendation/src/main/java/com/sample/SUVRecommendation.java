@@ -82,29 +82,35 @@ public class SUVRecommendation {
     
     	
     	private JLabel questionLabel;
-    	private JButton answers[] = new JButton[2];
+    	private JButton answers[] = new JButton[3];
     	
     	public SUVRecommendationUI()
     	{
-    		this.setPreferredSize(new Dimension(400,300));
+    		this.setPreferredSize(new Dimension(400,600));
     		
-    		questionLabel = new JLabel("Pytanie", SwingConstants.CENTER);
+    		questionLabel = new JLabel("Will you ever actually take it off road ?", SwingConstants.CENTER);
     		questionLabel.setBorder(LineBorder.createGrayLineBorder());
     		questionLabel.setBounds(0,0,400,100);
     		
 			this.add(questionLabel);
 			
-			answers[0] = new JButton("Answer 1");
+			answers[0] = new JButton("Not if I can help it");
 			answers[0].setBounds(100, 120, 200, 50);
 			answers[0].addActionListener(this);
 			
 			this.add(answers[0]);
 			
-			answers[1] = new JButton("Answer 2");
+			answers[1] = new JButton("Roads are for choads");
 			answers[1].setBounds(100, 200, 200, 50);
 			answers[1].addActionListener(this);
 			
 			this.add(answers[1]);
+			
+			answers[2] = new JButton("Sometimes for work");
+			answers[2].setBounds(100, 280, 200, 50);
+			answers[2].addActionListener(this);
+			
+			this.add(answers[2]);
 			
     	}
     	
@@ -142,6 +148,9 @@ public class SUVRecommendation {
 			}
 			else if(e.getSource() == answers[1]){
 				System.out.println("1 button");
+			}
+			else if(e.getSource() == answers[2]){
+				System.out.println("2 button");
 			}
 			
 		}
