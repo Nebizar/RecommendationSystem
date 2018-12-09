@@ -31,10 +31,12 @@ public class SUVRecommendation {
 
             // go !
         	new SUVRecommendation().init(true);
-            Message message = new Message();
-            message.setMessage("Hello World");
-            message.setStatus(Message.HELLO);
-            kSession.insert(message);
+            Question question = new Question();
+            ArrayList <String> answers = new ArrayList<String>();
+            answers.add("Not if I can help it");
+            answers.add("Roads are for choads");
+            question.setValues("Will you ever actually take it off road?", 2, answers, false, 0);
+            kSession.insert(question);
             kSession.fireAllRules();
         } catch (Throwable t) {
             t.printStackTrace();
@@ -165,7 +167,7 @@ public class SUVRecommendation {
     	private ArrayList<String> answers;
     	private boolean gotResult;
     	private String result;
-    	private int chosen;
+    	public int chosen;
     	
     	public Question() {
     		answers=new ArrayList<String>();

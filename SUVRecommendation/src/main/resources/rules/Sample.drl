@@ -1,20 +1,21 @@
 package com.sample
  
-import com.sample.SUVRecommendation.Message;
+import com.sample.SUVRecommendation.Question;
  
-rule "Hello World"
+rule "Not off road"
     when
-        m : Message( status == Message.HELLO, myMessage : message )
+        q: Question(chosen==0);
     then
-        System.out.println( myMessage );
-        m.setMessage( "Goodbye cruel world" );
-        m.setStatus( Message.GOODBYE );
-        update( m );
+        q.setValues("So wait, why are you buying an SUV?",5,q.getAnswers(),false,0);
+        System.out.println("So wait, why are you buying an SUV?");
+        update(q);
 end
 
-rule "GoodBye"
+rule "Style"
     when
-        Message( status == Message.GOODBYE, myMessage : message )
+        q: Question(chosen==0);
     then
-        System.out.println( myMessage );
+        q.setValues("What do you like about the style?",4,q.getAnswers(),false,0);
+        System.out.println("What do you like about the style?");
+        update(q);
 end
