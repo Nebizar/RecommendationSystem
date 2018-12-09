@@ -15,7 +15,7 @@ import org.kie.api.KieServices;
 import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;
 
-import java.utils.ArrayList;
+import java.util.ArrayList;
 
 /**
  * This is a sample class to launch a rule.
@@ -163,16 +163,16 @@ public class SUVRecommendation {
     	private String question;
     	private int numberOfAnswers;
     	private ArrayList<String> answers;
-    	private bool gotResult;
+    	private boolean gotResult;
     	private String result;
     	private int chosen;
     	
     	public Question() {
     		answers=new ArrayList<String>();
-    		gotAnswer=False;
+    		gotResult=false;
     	}
     	
-    	public void setValues(String q, int n, ArrayList a, bool g, int c) {
+    	public void setValues(String q, int n, ArrayList a, boolean g, int c) {
     		question=q;
     		numberOfAnswers=n;
     		answers=a;
@@ -196,7 +196,7 @@ public class SUVRecommendation {
     		return answers;
     	}
     	
-    	public bool getGotResult() {
+    	public boolean getGotResult() {
     		return gotResult;
     	}
     }
