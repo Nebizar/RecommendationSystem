@@ -1,13 +1,25 @@
 package com.sample
  
 import com.sample.SUVRecommendation.Question;
+import java.util.ArrayList;
+import com.sample.SUVRecommendation.SUVRecommendationUI;
  
 rule "Not off road"
     when
         q: Question(chosen==0, questionID==0);
     then
         System.out.println("So wait, why are you buying an SUV?");
-        insert(new Question("So wait, why are you buying an SUV?",5,q.getAnswers(),false,0,1));
+        ArrayList <String> answers = new ArrayList<String>();
+       	answers.add("I like the style");
+        answers.add("Got kids, don't want minivan");
+        answers.add("Big makes me feel safe");
+        answers.add("Maybe I'll go off road?");
+        answers.add("I want to do things, I can't do in a car");
+        Question newQuestion = new Question("So wait, why are you buying an SUV?",5,answers,false,0,1);
+        SUVRecommendationUI ui = new SUVRecommendationUI(newQuestion);
+    	ui.startGUI(true);
+    	newQuestion.waitForAnswer();
+        insert(newQuestion);
 end
 
 rule "Style"
