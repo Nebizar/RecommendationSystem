@@ -79,7 +79,7 @@ public class SUVRecommendation {
 			
 			for(int i=0;i<question.getNumberOfAnswers();i++) {
 				answers[i] = new JButton(answersNames.get(i));
-				answers[i].setBounds(100, 120+i*80, 200, 50);
+				answers[i].setBounds(50, 120+i*80, 300, 50);
 				answers[i].addActionListener(this);
 				
 				this.add(answers[i]);
