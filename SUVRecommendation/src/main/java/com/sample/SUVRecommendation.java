@@ -85,30 +85,6 @@ public class SUVRecommendation {
 				this.add(answers[i]);
 			}
 			
-			/*answers[1] = new JButton("Roads are for choads");
-			answers[1].setBounds(100, 200, 200, 50);
-			answers[1].addActionListener(this);
-			
-			this.add(answers[1]);
-			
-			answers[2] = new JButton("Sometimes for work");
-			answers[2].setBounds(100, 280, 200, 50);
-			answers[2].addActionListener(this);
-			
-			this.add(answers[2]);
-			
-			answers[3] = new JButton("Sometimes for work");
-			answers[3].setBounds(100, 280, 200, 50);
-			answers[3].addActionListener(this);
-			
-			this.add(answers[5]);
-			
-			answers[4] = new JButton("Sometimes for work");
-			answers[4].setBounds(100, 280, 200, 50);
-			answers[4].addActionListener(this);
-			
-			this.add(answers[4]);*/
-			
     	}
     	
     	
@@ -145,26 +121,6 @@ public class SUVRecommendation {
 					question.setGotAnswer(true);
 				}
 			}
-			/*if(e.getSource() == answers[0]){
-				question.setChosen(0);
-				question.setGotAnswer(true);
-			}
-			else if(e.getSource() == answers[1]){
-				question.setChosen(1);
-				question.setGotAnswer(true);
-			}
-			else if(e.getSource() == answers[2]){
-				question.setChosen(2);
-				question.setGotAnswer(true);
-			}
-			else if(e.getSource() == answers[3]){
-				question.setChosen(3);
-				question.setGotAnswer(true);
-			}
-			else if(e.getSource() == answers[4]){
-				question.setChosen(4);
-				question.setGotAnswer(true);
-			}*/
 			
 		}
     
@@ -174,7 +130,7 @@ public class SUVRecommendation {
     	private String question;
     	private int numberOfAnswers;
     	private ArrayList<String> answers;
-    	private boolean gotResult;
+    	public boolean gotResult;
     	private String result;
     	public int chosen;
     	public int questionID;

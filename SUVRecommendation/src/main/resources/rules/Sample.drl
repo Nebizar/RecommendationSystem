@@ -8,7 +8,6 @@ rule "Not off road"
     when
         q: Question(chosen==0, questionID==0);
     then
-        System.out.println("So wait, why are you buying an SUV?");
         ArrayList <String> answers = new ArrayList<String>();
        	answers.add("I like the style");
         answers.add("Got kids, don't want minivan");
@@ -26,6 +25,37 @@ rule "Style"
     when
         q: Question(chosen==0, questionID==1);
     then
-        System.out.println("What do you like about the style?");
-        insert(new Question("What do you like about the style?",4,q.getAnswers(),false,0,2));
+        ArrayList <String> answers = new ArrayList<String>();
+       	answers.add("I guess I want a giant mini");
+        answers.add("I'm into cartoonish looking giant-wheeled hatchbacks");
+        answers.add("They make me feel tough");
+        answers.add("I always wanted a vehicross");
+        Question newQuestion = new Question("What do you like about the style?",4,answers,false,0,2);
+        SUVRecommendationUI ui = new SUVRecommendationUI(newQuestion);
+    	ui.startGUI(true);
+    	newQuestion.waitForAnswer();
+        insert(newQuestion);
+end
+
+rule "Ford Flex"
+    when
+        q: Question(chosen==0, questionID==2);
+    then
+        ArrayList <String> answers = new ArrayList<String>();
+       	answers.add("But much less useful");
+        Question newQuestion = new Question("Ford Flex",1,answers,true,0,3);
+        SUVRecommendationUI ui = new SUVRecommendationUI(newQuestion);
+    	ui.startGUI(true);
+    	newQuestion.waitForAnswer();
+        insert(newQuestion);
+end
+
+rule "Mini Peaceman"
+    when
+        q: Question(gotResult, questionID==3);
+    then
+        ArrayList <String> answers = new ArrayList<String>();
+        Question newQuestion = new Question("Mini Peaceman",0,answers,true,0,3);
+        SUVRecommendationUI ui = new SUVRecommendationUI(newQuestion);
+    	ui.startGUI(true);
 end
