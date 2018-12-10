@@ -4,18 +4,16 @@ import com.sample.SUVRecommendation.Question;
  
 rule "Not off road"
     when
-        q: Question(chosen==0);
+        q: Question(chosen==0, questionID==0);
     then
-        q.setValues("So wait, why are you buying an SUV?",5,q.getAnswers(),false,0);
         System.out.println("So wait, why are you buying an SUV?");
-        update(q);
+        insert(new Question("So wait, why are you buying an SUV?",5,q.getAnswers(),false,0,1));
 end
 
 rule "Style"
     when
-        q: Question(chosen==0);
+        q: Question(chosen==0, questionID==1);
     then
-        q.setValues("What do you like about the style?",4,q.getAnswers(),false,0);
         System.out.println("What do you like about the style?");
-        update(q);
+        insert(new Question("What do you like about the style?",4,q.getAnswers(),false,0,2));
 end

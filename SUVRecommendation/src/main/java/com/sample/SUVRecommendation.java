@@ -35,7 +35,8 @@ public class SUVRecommendation {
             ArrayList <String> answers = new ArrayList<String>();
             answers.add("Not if I can help it");
             answers.add("Roads are for choads");
-            question.setValues("Will you ever actually take it off road?", 2, answers, false, 0);
+            answers.add("Sometimes for work");
+            question.setValues("Will you ever actually take it off road?", 3, answers, false, 0,0);
             kSession.insert(question);
             kSession.fireAllRules();
         } catch (Throwable t) {
@@ -168,18 +169,31 @@ public class SUVRecommendation {
     	private boolean gotResult;
     	private String result;
     	public int chosen;
+    	public int questionID;
     	
     	public Question() {
     		answers=new ArrayList<String>();
     		gotResult=false;
     	}
     	
-    	public void setValues(String q, int n, ArrayList a, boolean g, int c) {
+    	public Question(String q, int n, ArrayList a, boolean g, int c,int i) {
+    		answers=new ArrayList<String>();
     		question=q;
     		numberOfAnswers=n;
     		answers=a;
     		gotResult=g;
     		chosen=c;
+    		questionID=i;
+    	}
+    	
+    	
+    	public void setValues(String q, int n, ArrayList a, boolean g, int c,int i) {
+    		question=q;
+    		numberOfAnswers=n;
+    		answers=a;
+    		gotResult=g;
+    		chosen=c;
+    		questionID=i;
     	}
     	
     	public void setResult(String r) {
