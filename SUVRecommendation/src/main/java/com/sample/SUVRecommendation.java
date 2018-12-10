@@ -30,54 +30,28 @@ public class SUVRecommendation {
         	KieSession kSession = kContainer.newKieSession("ksession-rules");
 
             // go !
-        	new SUVRecommendation().init(true);
-            Question question = new Question();
+        	Question question = new Question();
+        	new SUVRecommendation().init(true,question);
             ArrayList <String> answers = new ArrayList<String>();
             answers.add("Not if I can help it");
             answers.add("Roads are for choads");
             answers.add("Sometimes for work");
             question.setValues("Will you ever actually take it off road?", 3, answers, false, 0,0);
+            question.waitForAnswer();
             kSession.insert(question);
             kSession.fireAllRules();
         } catch (Throwable t) {
             t.printStackTrace();
         }
     }
-
-    public static class Message {
-
-        public static final int HELLO = 0;
-        public static final int GOODBYE = 1;
-
-        private String message;
-
-        private int status;
-
-        public String getMessage() {
-            return this.message;
-        }
-
-        public void setMessage(String message) {
-            this.message = message;
-        }
-
-        public int getStatus() {
-            return this.status;
-        }
-
-        public void setStatus(int status) {
-            this.status = status;
-        }
-
-    }
     
     public SUVRecommendation()
     {
     }
     
-    public void init(boolean exitOnClose) {
+    public void init(boolean exitOnClose,Question question) {
     		 
-    		SUVRecommendationUI ui = new SUVRecommendationUI();
+    		SUVRecommendationUI ui = new SUVRecommendationUI(question);
     		ui.startGUI(exitOnClose);
  	        
     }
@@ -88,11 +62,12 @@ public class SUVRecommendation {
     	
     	private JLabel questionLabel;
     	private JButton answers[] = new JButton[3];
+    	private Question question;
     	
-    	public SUVRecommendationUI()
+    	public SUVRecommendationUI(Question q)
     	{
     		this.setPreferredSize(new Dimension(400,600));
-    		
+    		question=q;
     		questionLabel = new JLabel("Will you ever actually take it off road ?", SwingConstants.CENTER);
     		questionLabel.setBorder(LineBorder.createGrayLineBorder());
     		questionLabel.setBounds(0,0,400,100);
@@ -149,13 +124,16 @@ public class SUVRecommendation {
 			// TODO Auto-generated method stub
 			
 			if(e.getSource() == answers[0]){
-				System.out.println("0 button");
+				question.setChosen(0);
+				question.setGotAnswer(true);
 			}
 			else if(e.getSource() == answers[1]){
-				System.out.println("1 button");
+				question.setChosen(1);
+				question.setGotAnswer(true);
 			}
 			else if(e.getSource() == answers[2]){
-				System.out.println("2 button");
+				question.setChosen(2);
+				question.setGotAnswer(true);
 			}
 			
 		}
@@ -170,10 +148,12 @@ public class SUVRecommendation {
     	private String result;
     	public int chosen;
     	public int questionID;
+    	private boolean gotAnswer;
     	
     	public Question() {
     		answers=new ArrayList<String>();
     		gotResult=false;
+    		gotAnswer=false;
     	}
     	
     	public Question(String q, int n, ArrayList a, boolean g, int c,int i) {
@@ -196,6 +176,10 @@ public class SUVRecommendation {
     		questionID=i;
     	}
     	
+    	public void setChosen(int c) {
+    		chosen=c;
+    	}
+    	
     	public void setResult(String r) {
     		result=r;
     	}
@@ -214,6 +198,22 @@ public class SUVRecommendation {
     	
     	public boolean getGotResult() {
     		return gotResult;
+    	}
+    	
+    	public void setGotAnswer(boolean ga) {
+    		gotAnswer=ga;
+    	}
+    	
+    	public boolean getGotAnswer() {
+    		return gotAnswer;
+    	}
+    	
+    	public void waitForAnswer() {
+    		while(!gotAnswer) {
+    			System.out.println("Randomly working");
+    		}
+    		
+    		gotAnswer=false;
     	}
     }
 }
