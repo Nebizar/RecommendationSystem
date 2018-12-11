@@ -59,3 +59,36 @@ rule "Mini Peaceman"
         SUVRecommendationUI ui = new SUVRecommendationUI(newQuestion);
     	ui.startGUI(true);
 end
+
+rule "Volvo XC60"
+    when
+        q: Question(chosen==2, questionID==1);
+    then
+        ArrayList <String> answers = new ArrayList<String>();
+        Question newQuestion = new Question("Volvo XC60",0,answers,true,0,3);
+        SUVRecommendationUI ui = new SUVRecommendationUI(newQuestion);
+    	ui.startGUI(true);
+end
+
+rule "Not really"
+    when
+        q: Question(chosen==3, questionID==1);
+    then
+        ArrayList <String> answers = new ArrayList<String>();
+       	answers.add("No, fuck it. Gimme an EV.");
+        Question newQuestion = new Question("Will you really?",1,answers,true,0,4);
+        SUVRecommendationUI ui = new SUVRecommendationUI(newQuestion);
+    	ui.startGUI(true);
+    	newQuestion.waitForAnswer();
+        insert(newQuestion);
+end
+
+rule "Toyota RAV4 EV"
+    when
+        q: Question(gotResult, questionID==4);
+    then
+        ArrayList <String> answers = new ArrayList<String>();
+        Question newQuestion = new Question("Toyota RAV4 EV",0,answers,true,0,4);
+        SUVRecommendationUI ui = new SUVRecommendationUI(newQuestion);
+    	ui.startGUI(true);
+end
