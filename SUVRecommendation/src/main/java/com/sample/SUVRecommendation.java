@@ -104,14 +104,6 @@ public class SUVRecommendation {
     		frame.setLocationRelativeTo(null); // Center in screen
     		frame.setVisible( true );
     	}
-    	
-    	public static void setQandA(String question, String[] answers){
-			
-			// Ustawianie pytania i odpowiedzi
-		}
-
-
-
 
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
