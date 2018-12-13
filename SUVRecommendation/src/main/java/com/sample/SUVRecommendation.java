@@ -28,17 +28,7 @@ public class SUVRecommendation {
 	        KieServices ks = KieServices.Factory.get();
     	    KieContainer kContainer = ks.getKieClasspathContainer();
         	KieSession kSession = kContainer.newKieSession("ksession-rules");
-
             // go !
-        	Question question = new Question();
-            ArrayList <String> answers = new ArrayList<String>();
-            answers.add("Not if I can help it");
-            answers.add("Roads are for choads");
-            answers.add("Sometimes for work");
-            question.setValues("Will you ever actually take it off road?", 3, answers, false, 0,0);
-            new SUVRecommendation().init(true,question);
-            question.waitForAnswer();
-            kSession.insert(question);
             kSession.fireAllRules();
         } catch (Throwable t) {
             t.printStackTrace();
@@ -106,7 +96,6 @@ public class SUVRecommendation {
     	}
 
 		public void actionPerformed(ActionEvent e) {
-			// TODO Auto-generated method stub
 			for(int i=0;i<question.getNumberOfAnswers();i++) {
 				if(e.getSource() == answers[i]){
 					question.setChosen(i);
@@ -134,7 +123,7 @@ public class SUVRecommendation {
     		gotAnswer=false;
     	}
     	
-    	public Question(String q, int n, ArrayList a, boolean g, int c,int i) {
+    	public Question(String q, int n, ArrayList<String> a, boolean g, int c,int i) {
     		answers=new ArrayList<String>();
     		question=q;
     		numberOfAnswers=n;
@@ -145,7 +134,7 @@ public class SUVRecommendation {
     	}
     	
     	
-    	public void setValues(String q, int n, ArrayList a, boolean g, int c,int i) {
+    	public void setValues(String q, int n, ArrayList<String> a, boolean g, int c,int i) {
     		question=q;
     		numberOfAnswers=n;
     		answers=a;
@@ -170,7 +159,7 @@ public class SUVRecommendation {
     		return numberOfAnswers;
     	}
     	
-    	public ArrayList getAnswers() {
+    	public ArrayList<String> getAnswers() {
     		return answers;
     	}
     	

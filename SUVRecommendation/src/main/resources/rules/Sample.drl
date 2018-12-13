@@ -4,6 +4,20 @@ import com.sample.SUVRecommendation.Question;
 import java.util.ArrayList;
 import com.sample.SUVRecommendation.SUVRecommendationUI;
  
+rule "init"
+	when
+	then
+		Question question = new Question();
+        ArrayList <String> answers = new ArrayList<String>();
+        answers.add("Not if I can help it");
+        answers.add("Roads are for choads");
+        answers.add("Sometimes for work");
+        question.setValues("Will you ever actually take it off road?", 3, answers, false, 0,0);
+        new SUVRecommendation().init(true,question);
+        question.waitForAnswer();
+        insert(question);
+end
+ 
 rule "Not off road"
     when
         q: Question(chosen==0, questionID==0);
@@ -146,7 +160,7 @@ rule "Tough"
         answers.add("Like I'm rich and important");
         answers.add("Like I'm exclusive");
         answers.add("Like I'm a little famous and tasteless");
-        answers.add("Like I'm erotically drawn to a cybor bull");
+        answers.add("Like I'm erotically drawn to a cyborg bull");
         Question newQuestion = new Question("What kind of tough?",5,answers,false,0,6);
         SUVRecommendationUI ui = new SUVRecommendationUI(newQuestion);
     	ui.startGUI(true);
