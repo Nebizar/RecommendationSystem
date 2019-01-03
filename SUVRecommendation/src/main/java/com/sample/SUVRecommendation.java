@@ -1,5 +1,6 @@
 package com.sample;
 
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,11 +10,16 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
 import javax.swing.border.LineBorder;
 
 import org.kie.api.KieServices;
 import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;
+
+import javafx.scene.Node;
+import javafx.stage.Stage;
+import javafx.stage.Window;
 
 import java.util.ArrayList;
 
@@ -102,6 +108,14 @@ public class SUVRecommendation {
 					question.setGotAnswer(true);
 				}
 			}
+			
+			//Access the currently opened JFrame
+			Component component = (Component) e.getSource();
+	        JFrame frame = (JFrame) SwingUtilities.getRoot(component);
+	        
+			//Close the window after getting the answer
+			frame.setVisible(false);
+			frame.dispose();
 			
 		}
     
