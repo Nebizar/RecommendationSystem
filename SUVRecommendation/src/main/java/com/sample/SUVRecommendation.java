@@ -22,6 +22,7 @@ import javafx.stage.Stage;
 import javafx.stage.Window;
 
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 /**
  * This is a sample class to launch a rule.
@@ -191,7 +192,11 @@ public class SUVRecommendation {
     	
     	public void waitForAnswer() {
     		while(!gotAnswer) {
-    			System.out.println("Randomly working");
+    			try {
+					TimeUnit.SECONDS.sleep(1);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
     		}
     		
     		gotAnswer=false;
