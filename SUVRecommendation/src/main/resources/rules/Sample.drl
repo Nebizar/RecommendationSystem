@@ -12,7 +12,7 @@ rule "init"
         answers.add("Not if I can help it");
         answers.add("Roads are for choads");
         answers.add("Sometimes for work");
-        question.setValues("Will you ever actually take it off road?", 3, answers, false, 0,0);
+        question.setValues("Will you ever actually take it off road?", 3, answers, "");
         new SUVRecommendation().init(true,question);
         question.waitForAnswer();
         insert(question);
@@ -28,7 +28,7 @@ rule "Not off road"
         answers.add("Big makes me feel safe");
         answers.add("Maybe I'll go off road?");
         answers.add("I want to do things, I can't do in a car");
-        Question newQuestion = new Question("So wait, why are you buying an SUV?",5,answers,false,0,1);
+        Question newQuestion = new Question("So wait, why are you buying an SUV?",5,answers,"");
         SUVRecommendationUI ui = new SUVRecommendationUI(newQuestion);
     	ui.startGUI(true);
     	newQuestion.waitForAnswer();
@@ -44,7 +44,7 @@ rule "Style"
         answers.add("I'm into cartoonish looking giant-wheeled hatchbacks");
         answers.add("They make me feel tough");
         answers.add("I always wanted a vehicross");
-        Question newQuestion = new Question("What do you like about the style?",4,answers,false,0,2);
+        Question newQuestion = new Question("What do you like about the style?",4,answers,"");
         SUVRecommendationUI ui = new SUVRecommendationUI(newQuestion);
     	ui.startGUI(true);
     	newQuestion.waitForAnswer();
@@ -57,7 +57,7 @@ rule "Ford Flex"
     then
         ArrayList <String> answers = new ArrayList<String>();
        	answers.add("But much less useful");
-        Question newQuestion = new Question("Ford Flex",1,answers,true,0,3);
+        Question newQuestion = new Question("Ford Flex",1,answers,"");
         SUVRecommendationUI ui = new SUVRecommendationUI(newQuestion);
     	ui.startGUI(true);
     	newQuestion.waitForAnswer();
@@ -69,7 +69,7 @@ rule "Mini Peaceman"
         q: Question(gotResult, questionID==3);
     then
         ArrayList <String> answers = new ArrayList<String>();
-        Question newQuestion = new Question("Mini Peaceman",0,answers,true,0,3);
+        Question newQuestion = new Question("Mini Peaceman",0,answers,"");
         SUVRecommendationUI ui = new SUVRecommendationUI(newQuestion);
     	ui.startGUI(true);
 end
@@ -79,7 +79,7 @@ rule "Volvo XC60"
         q: Question(chosen==2, questionID==1);
     then
         ArrayList <String> answers = new ArrayList<String>();
-        Question newQuestion = new Question("Volvo XC60",0,answers,true,0,3);
+        Question newQuestion = new Question("Volvo XC60",0,answers,"");
         SUVRecommendationUI ui = new SUVRecommendationUI(newQuestion);
     	ui.startGUI(true);
 end
@@ -90,7 +90,7 @@ rule "Not really"
     then
         ArrayList <String> answers = new ArrayList<String>();
        	answers.add("No, fuck it. Gimme an EV.");
-        Question newQuestion = new Question("Will you really?",1,answers,true,0,4);
+        Question newQuestion = new Question("Will you really?",1,answers,"");
         SUVRecommendationUI ui = new SUVRecommendationUI(newQuestion);
     	ui.startGUI(true);
     	newQuestion.waitForAnswer();
@@ -102,7 +102,7 @@ rule "Toyota RAV4 EV"
         q: Question(gotResult, questionID==4);
     then
         ArrayList <String> answers = new ArrayList<String>();
-        Question newQuestion = new Question("Toyota RAV4 EV",0,answers,true,0,4);
+        Question newQuestion = new Question("Toyota RAV4 EV",0,answers,"");
         SUVRecommendationUI ui = new SUVRecommendationUI(newQuestion);
     	ui.startGUI(true);
 end
@@ -114,7 +114,7 @@ rule "For work"
         ArrayList <String> answers = new ArrayList<String>();
        	answers.add("Camera car driver");
         answers.add("Man stuff with hard hats");
-        Question newQuestion = new Question("What's your work?",2,answers,true,0,5);
+        Question newQuestion = new Question("What's your work?",2,answers,"");
         SUVRecommendationUI ui = new SUVRecommendationUI(newQuestion);
     	ui.startGUI(true);
     	newQuestion.waitForAnswer();
@@ -126,7 +126,7 @@ rule "Porsche Cayenne Diesel"
         q: Question(chosen==0, gotResult, questionID==5);
     then
         ArrayList <String> answers = new ArrayList<String>();
-        Question newQuestion = new Question("Porsche Cayenne Diesel",0,answers,true,0,5);
+        Question newQuestion = new Question("Porsche Cayenne Diesel",0,answers,"");
         SUVRecommendationUI ui = new SUVRecommendationUI(newQuestion);
     	ui.startGUI(true);
 end
@@ -136,7 +136,7 @@ rule "Hard hats man"
         q: Question(chosen==1, gotResult, questionID==5);
     then
         ArrayList <String> answers = new ArrayList<String>();
-        Question newQuestion = new Question("Chevy Suburban, Ford Expedition",0,answers,true,0,5);
+        Question newQuestion = new Question("Chevy Suburban, Ford Expedition",0,answers,"");
         SUVRecommendationUI ui = new SUVRecommendationUI(newQuestion);
     	ui.startGUI(true);
 end
@@ -146,7 +146,7 @@ rule "Cartoon cars"
         q: Question(chosen==1, questionID==2);
     then
         ArrayList <String> answers = new ArrayList<String>();
-        Question newQuestion = new Question("Honda Crosstour, BMW X6",0,answers,true,0,5);
+        Question newQuestion = new Question("Honda Crosstour, BMW X6",0,answers,"");
         SUVRecommendationUI ui = new SUVRecommendationUI(newQuestion);
     	ui.startGUI(true);
 end
@@ -161,7 +161,7 @@ rule "Tough"
         answers.add("Like I'm exclusive");
         answers.add("Like I'm a little famous and tasteless");
         answers.add("Like I'm erotically drawn to a cyborg bull");
-        Question newQuestion = new Question("What kind of tough?",5,answers,false,0,6);
+        Question newQuestion = new Question("What kind of tough?",5,answers,"");
         SUVRecommendationUI ui = new SUVRecommendationUI(newQuestion);
     	ui.startGUI(true);
     	newQuestion.waitForAnswer();
@@ -173,7 +173,7 @@ rule "Government official"
         q: Question(chosen==0, questionID==6);
     then
         ArrayList <String> answers = new ArrayList<String>();
-        Question newQuestion = new Question("Chevy Tahoe, Cadillac Escalade",0,answers,true,0,6);
+        Question newQuestion = new Question("Chevy Tahoe, Cadillac Escalade",0,answers,"");
         SUVRecommendationUI ui = new SUVRecommendationUI(newQuestion);
     	ui.startGUI(true);
 end
@@ -183,7 +183,7 @@ rule "Rich and important"
         q: Question(chosen==1, questionID==6);
     then
         ArrayList <String> answers = new ArrayList<String>();
-        Question newQuestion = new Question("Lexus L X, Range Rover Sport",0,answers,true,0,6);
+        Question newQuestion = new Question("Lexus L X, Range Rover Sport",0,answers,"");
         SUVRecommendationUI ui = new SUVRecommendationUI(newQuestion);
     	ui.startGUI(true);
 end
@@ -195,7 +195,7 @@ rule "Exclusive"
         ArrayList <String> answers = new ArrayList<String>();
        	answers.add("Lamborghini Ursus");
        	answers.add("I don't wanna wait forever");
-        Question newQuestion = new Question("Like, unicorn level exclusive?",2,answers,false,0,7);
+        Question newQuestion = new Question("Like, unicorn level exclusive?",2,answers,"");
         SUVRecommendationUI ui = new SUVRecommendationUI(newQuestion);
     	ui.startGUI(true);
     	newQuestion.waitForAnswer();
@@ -207,7 +207,7 @@ rule "Lamborghini Ursus"
         q: Question(chosen==0, questionID==7);
     then
         ArrayList <String> answers = new ArrayList<String>();
-        Question newQuestion = new Question("Lamborghini Ursus",0,answers,true,0,7);
+        Question newQuestion = new Question("Lamborghini Ursus",0,answers,"");
         SUVRecommendationUI ui = new SUVRecommendationUI(newQuestion);
     	ui.startGUI(true);
 end
@@ -217,7 +217,7 @@ rule "Audi Q7"
         q: Question(chosen==1, questionID==7);
     then
         ArrayList <String> answers = new ArrayList<String>();
-        Question newQuestion = new Question("Audi Q7",0,answers,true,0,7);
+        Question newQuestion = new Question("Audi Q7",0,answers,"");
         SUVRecommendationUI ui = new SUVRecommendationUI(newQuestion);
     	ui.startGUI(true);
 end
@@ -227,7 +227,7 @@ rule "Lincoln Navigator"
         q: Question(chosen==3, questionID==6);
     then
         ArrayList <String> answers = new ArrayList<String>();
-        Question newQuestion = new Question("Lincoln Navigator",0,answers,true,0,6);
+        Question newQuestion = new Question("Lincoln Navigator",0,answers,"");
         SUVRecommendationUI ui = new SUVRecommendationUI(newQuestion);
     	ui.startGUI(true);
 end
@@ -237,7 +237,7 @@ rule "Infiniti QX56"
         q: Question(chosen==4, questionID==6);
     then
         ArrayList <String> answers = new ArrayList<String>();
-        Question newQuestion = new Question("Infiniti QX56",0,answers,true,0,6);
+        Question newQuestion = new Question("Infiniti QX56",0,answers,"");
         SUVRecommendationUI ui = new SUVRecommendationUI(newQuestion);
     	ui.startGUI(true);
 end
@@ -250,7 +250,7 @@ rule "Vehicross"
        	answers.add("Also, I'm rich");
        	answers.add("Also, I'm cheap");
        	answers.add("Also, I want it to be a convertible that makes no sense whatsoever");
-        Question newQuestion = new Question("Sorta but more sleek and modern",3,answers,false,0,8);
+        Question newQuestion = new Question("Sorta but more sleek and modern",3,answers,"");
         SUVRecommendationUI ui = new SUVRecommendationUI(newQuestion);
     	ui.startGUI(true);
     	newQuestion.waitForAnswer();
@@ -262,7 +262,7 @@ rule "Rich"
         q: Question(chosen==0, questionID==8);
     then
         ArrayList <String> answers = new ArrayList<String>();
-        Question newQuestion = new Question("Range Rover Evoque, Maserati Kubang",0,answers,true,0,8);
+        Question newQuestion = new Question("Range Rover Evoque, Maserati Kubang",0,answers,"");
         SUVRecommendationUI ui = new SUVRecommendationUI(newQuestion);
     	ui.startGUI(true);
 end
@@ -272,7 +272,7 @@ rule "Nissan Rogue"
         q: Question(chosen==1, questionID==8);
     then
         ArrayList <String> answers = new ArrayList<String>();
-        Question newQuestion = new Question("Nissan Rogue",0,answers,true,0,8);
+        Question newQuestion = new Question("Nissan Rogue",0,answers,"");
         SUVRecommendationUI ui = new SUVRecommendationUI(newQuestion);
     	ui.startGUI(true);
 end
@@ -282,7 +282,7 @@ rule "Nissan Murano Cross Cabriolet"
         q: Question(chosen==2, questionID==8);
     then
         ArrayList <String> answers = new ArrayList<String>();
-        Question newQuestion = new Question("Nissan Murano Cross Cabriolet",0,answers,true,0,8);
+        Question newQuestion = new Question("Nissan Murano Cross Cabriolet",0,answers,"");
         SUVRecommendationUI ui = new SUVRecommendationUI(newQuestion);
     	ui.startGUI(true);
 end
@@ -295,7 +295,7 @@ rule "Not minivan"
        	answers.add("I want something fun to drive");
         answers.add("Just some general stigma thing");
         answers.add("They're too damn big");
-        Question newQuestion = new Question("Why not a minivan?",3,answers,false,0,9);
+        Question newQuestion = new Question("Why not a minivan?",3,answers,"");
         SUVRecommendationUI ui = new SUVRecommendationUI(newQuestion);
     	ui.startGUI(true);
     	newQuestion.waitForAnswer();
@@ -307,7 +307,7 @@ rule "Something fun"
         q: Question(chosen==0, questionID==9);
     then
         ArrayList <String> answers = new ArrayList<String>();
-        Question newQuestion = new Question("Mazda CX-5, BMW X6M",0,answers,true,0,9);
+        Question newQuestion = new Question("Mazda CX-5, BMW X6M",0,answers,"");
         SUVRecommendationUI ui = new SUVRecommendationUI(newQuestion);
     	ui.startGUI(true);
 end
@@ -317,7 +317,7 @@ rule "Stigma"
         q: Question(chosen==1, questionID==9);
     then
         ArrayList <String> answers = new ArrayList<String>();
-        Question newQuestion = new Question("Hyundai Tucson, Kia Sportage, Acura MDX",0,answers,true,0,9);
+        Question newQuestion = new Question("Hyundai Tucson, Kia Sportage, Acura MDX",0,answers,"");
         SUVRecommendationUI ui = new SUVRecommendationUI(newQuestion);
     	ui.startGUI(true);
 end
@@ -327,7 +327,7 @@ rule "Too big"
         q: Question(chosen==2, questionID==9);
     then
         ArrayList <String> answers = new ArrayList<String>();
-        Question newQuestion = new Question("Honda CR-V, Toyota RAV4",0,answers,true,0,9);
+        Question newQuestion = new Question("Honda CR-V, Toyota RAV4",0,answers,"");
         SUVRecommendationUI ui = new SUVRecommendationUI(newQuestion);
     	ui.startGUI(true);
 end
@@ -342,7 +342,7 @@ rule "What things"
         answers.add("Drive six people all in pilot's chairs");
         answers.add("Go antiquing off-road in an orange car");
         answers.add("Drive something unpronouncable");
-        Question newQuestion = new Question("What kind of things?",5,answers,false,0,10);
+        Question newQuestion = new Question("What kind of things?",5,answers,"");
         SUVRecommendationUI ui = new SUVRecommendationUI(newQuestion);
     	ui.startGUI(true);
     	newQuestion.waitForAnswer();
@@ -354,7 +354,7 @@ rule "Fast and tall"
         q: Question(chosen==0, questionID==10);
     then
         ArrayList <String> answers = new ArrayList<String>();
-        Question newQuestion = new Question("Jeep Grand Cherokee SRT8, Nissan Juke R",0,answers,true,0,10);
+        Question newQuestion = new Question("Jeep Grand Cherokee SRT8, Nissan Juke R",0,answers,"");
         SUVRecommendationUI ui = new SUVRecommendationUI(newQuestion);
     	ui.startGUI(true);
 end
@@ -364,7 +364,7 @@ rule "Porsche Cayenne"
         q: Question(chosen==1, questionID==10);
     then
         ArrayList <String> answers = new ArrayList<String>();
-        Question newQuestion = new Question("Porsche Cayenne",0,answers,true,0,10);
+        Question newQuestion = new Question("Porsche Cayenne",0,answers,"");
         SUVRecommendationUI ui = new SUVRecommendationUI(newQuestion);
     	ui.startGUI(true);
 end
@@ -374,7 +374,7 @@ rule "Hyundai Santa FE LTD"
         q: Question(chosen==2, questionID==10);
     then
         ArrayList <String> answers = new ArrayList<String>();
-        Question newQuestion = new Question("Hyundai Santa FE LTD",0,answers,true,0,10);
+        Question newQuestion = new Question("Hyundai Santa FE LTD",0,answers,"");
         SUVRecommendationUI ui = new SUVRecommendationUI(newQuestion);
     	ui.startGUI(true);
 end
@@ -384,7 +384,7 @@ rule "Subaru XV Crosstrek"
         q: Question(chosen==3, questionID==10);
     then
         ArrayList <String> answers = new ArrayList<String>();
-        Question newQuestion = new Question("Subaru XV Crosstrek",0,answers,true,0,10);
+        Question newQuestion = new Question("Subaru XV Crosstrek",0,answers,"");
         SUVRecommendationUI ui = new SUVRecommendationUI(newQuestion);
     	ui.startGUI(true);
 end
@@ -394,7 +394,7 @@ rule "VW Touareg"
         q: Question(chosen==4, questionID==10);
     then
         ArrayList <String> answers = new ArrayList<String>();
-        Question newQuestion = new Question("VW Touareg",0,answers,true,0,10);
+        Question newQuestion = new Question("VW Touareg",0,answers,"");
         SUVRecommendationUI ui = new SUVRecommendationUI(newQuestion);
     	ui.startGUI(true);
 end
@@ -409,7 +409,7 @@ rule "Off road"
         answers.add("Climb rocks and make Youtube videos");
         answers.add("Go camping, eat granola or deer meat");
         answers.add("Undertake expeditions");
-        Question newQuestion = new Question("What do you like to do when off-road?",5,answers,false,0,11);
+        Question newQuestion = new Question("What do you like to do when off-road?",5,answers,"");
         SUVRecommendationUI ui = new SUVRecommendationUI(newQuestion);
     	ui.startGUI(true);
     	newQuestion.waitForAnswer();
@@ -423,7 +423,7 @@ rule "Rally"
         ArrayList <String> answers = new ArrayList<String>();
        	answers.add("As far as you know");
         answers.add("I pretend, okay?");
-        Question newQuestion = new Question("Really rally?",2,answers,false,0,12);
+        Question newQuestion = new Question("Really rally?",2,answers,"");
         SUVRecommendationUI ui = new SUVRecommendationUI(newQuestion);
     	ui.startGUI(true);
     	newQuestion.waitForAnswer();
@@ -436,7 +436,7 @@ rule "Underdogs"
     then
         ArrayList <String> answers = new ArrayList<String>();
        	answers.add("Ya got me");
-        Question newQuestion = new Question("Do you have a thing for underdogs?",1,answers,false,0,13);
+        Question newQuestion = new Question("Do you have a thing for underdogs?",1,answers,"");
         SUVRecommendationUI ui = new SUVRecommendationUI(newQuestion);
     	ui.startGUI(true);
     	newQuestion.waitForAnswer();
@@ -448,7 +448,7 @@ rule "Mitsubishi Outlander Sport"
         q: Question(chosen==0, questionID==13);
     then
         ArrayList <String> answers = new ArrayList<String>();
-        Question newQuestion = new Question("Mitsubishi Outlander Sport",0,answers,true,0,13);
+        Question newQuestion = new Question("Mitsubishi Outlander Sport",0,answers,"");
         SUVRecommendationUI ui = new SUVRecommendationUI(newQuestion);
     	ui.startGUI(true);
 end
@@ -458,7 +458,7 @@ rule "VW Tiguan"
         q: Question(chosen==1, questionID==12);
     then
         ArrayList <String> answers = new ArrayList<String>();
-        Question newQuestion = new Question("VW Tiguan",0,answers,true,0,12);
+        Question newQuestion = new Question("VW Tiguan",0,answers,"");
         SUVRecommendationUI ui = new SUVRecommendationUI(newQuestion);
     	ui.startGUI(true);
 end
@@ -470,7 +470,7 @@ rule "School"
         ArrayList <String> answers = new ArrayList<String>();
        	answers.add("Old is gold");
        	answers.add("New new new");
-        Question newQuestion = new Question("Old school or new?",2,answers,false,0,14);
+        Question newQuestion = new Question("Old school or new?",2,answers,"");
         SUVRecommendationUI ui = new SUVRecommendationUI(newQuestion);
     	ui.startGUI(true);
     	newQuestion.waitForAnswer();
@@ -482,7 +482,7 @@ rule "Icons"
         q: Question(chosen==0, questionID==14);
     then
         ArrayList <String> answers = new ArrayList<String>();
-        Question newQuestion = new Question("Icon BR, Icon FJ",0,answers,true,0,14);
+        Question newQuestion = new Question("Icon BR, Icon FJ",0,answers,"");
         SUVRecommendationUI ui = new SUVRecommendationUI(newQuestion);
     	ui.startGUI(true);
 end
@@ -492,7 +492,7 @@ rule "Local Motors Rally Fighter"
         q: Question(chosen==1, questionID==14);
     then
         ArrayList <String> answers = new ArrayList<String>();
-        Question newQuestion = new Question("Local Motors Rally Fighter",0,answers,true,0,14);
+        Question newQuestion = new Question("Local Motors Rally Fighter",0,answers,"");
         SUVRecommendationUI ui = new SUVRecommendationUI(newQuestion);
     	ui.startGUI(true);
 end
@@ -504,7 +504,7 @@ rule "Winshields"
         ArrayList <String> answers = new ArrayList<String>();
        	answers.add("Only if I have 3 wipers");
        	answers.add("The flatter the better");
-        Question newQuestion = new Question("Do you like flat windshields?",2,answers,false,0,15);
+        Question newQuestion = new Question("Do you like flat windshields?",2,answers,"");
         SUVRecommendationUI ui = new SUVRecommendationUI(newQuestion);
     	ui.startGUI(true);
     	newQuestion.waitForAnswer();
@@ -516,7 +516,7 @@ rule "Toyota FJ Cruiser"
         q: Question(chosen==0, questionID==15);
     then
         ArrayList <String> answers = new ArrayList<String>();
-        Question newQuestion = new Question("Toyota FJ Cruiser",0,answers,true,0,15);
+        Question newQuestion = new Question("Toyota FJ Cruiser",0,answers,"");
         SUVRecommendationUI ui = new SUVRecommendationUI(newQuestion);
     	ui.startGUI(true);
 end
@@ -527,7 +527,7 @@ rule "Flat"
     then
         ArrayList <String> answers = new ArrayList<String>();
        	answers.add("Old is gold");
-        Question newQuestion = new Question("Jeep Wrangler Unlt'd, Mercedes G-Wagen",1,answers,false,0,14);
+        Question newQuestion = new Question("Jeep Wrangler Unlt'd, Mercedes G-Wagen",1,answers,"");
         SUVRecommendationUI ui = new SUVRecommendationUI(newQuestion);
     	ui.startGUI(true);
     	newQuestion.waitForAnswer();
@@ -541,7 +541,7 @@ rule "Haul ass"
         ArrayList <String> answers = new ArrayList<String>();
        	answers.add("Oh God yes");
        	answers.add("Why? It's beautiful out there with the bears");
-        Question newQuestion = new Question("Do you like fto haul ass?",2,answers,false,0,16);
+        Question newQuestion = new Question("Do you like to haul ass?",2,answers,"");
         SUVRecommendationUI ui = new SUVRecommendationUI(newQuestion);
     	ui.startGUI(true);
     	newQuestion.waitForAnswer();
@@ -553,7 +553,7 @@ rule "Yeah"
         q: Question(chosen==0, questionID==16);
     then
         ArrayList <String> answers = new ArrayList<String>();
-        Question newQuestion = new Question("Mercedes G63 AMG, Hennessey Vlociraptor",0,answers,true,0,16);
+        Question newQuestion = new Question("Mercedes G63 AMG, Hennessey Vlociraptor",0,answers,"");
         SUVRecommendationUI ui = new SUVRecommendationUI(newQuestion);
     	ui.startGUI(true);
 end
@@ -563,7 +563,7 @@ rule "Bear lover"
         q: Question(chosen==1, questionID==16);
     then
         ArrayList <String> answers = new ArrayList<String>();
-        Question newQuestion = new Question("Subaru Forester, Nissan Xterra, Toyota Sequoia",0,answers,true,0,16);
+        Question newQuestion = new Question("Subaru Forester, Nissan Xterra, Toyota Sequoia",0,answers,"");
         SUVRecommendationUI ui = new SUVRecommendationUI(newQuestion);
     	ui.startGUI(true);
 end
@@ -575,7 +575,7 @@ rule "Expedition destinations"
         ArrayList <String> answers = new ArrayList<String>();
        	answers.add("You know, the Arctic, across Africa, Nepal");
        	answers.add("The beach where you can see boobs");
-        Question newQuestion = new Question("Where are these expeditions to?",2,answers,false,0,17);
+        Question newQuestion = new Question("Where are these expeditions to?",2,answers,"");
         SUVRecommendationUI ui = new SUVRecommendationUI(newQuestion);
     	ui.startGUI(true);
     	newQuestion.waitForAnswer();
@@ -587,7 +587,7 @@ rule "Real deal"
         q: Question(chosen==0, questionID==17);
     then
         ArrayList <String> answers = new ArrayList<String>();
-        Question newQuestion = new Question("Land Rover LR4, Toyota Land Cruiser",0,answers,true,0,17);
+        Question newQuestion = new Question("Land Rover LR4, Toyota Land Cruiser",0,answers,"");
         SUVRecommendationUI ui = new SUVRecommendationUI(newQuestion);
     	ui.startGUI(true);
 end
@@ -597,7 +597,7 @@ rule "Boobies"
         q: Question(chosen==1, questionID==17);
     then
         ArrayList <String> answers = new ArrayList<String>();
-        Question newQuestion = new Question("GMC Yukon, Ford Explorer, Jeep Patriot",0,answers,true,0,17);
+        Question newQuestion = new Question("GMC Yukon, Ford Explorer, Jeep Patriot",0,answers,"");
         SUVRecommendationUI ui = new SUVRecommendationUI(newQuestion);
     	ui.startGUI(true);
 end

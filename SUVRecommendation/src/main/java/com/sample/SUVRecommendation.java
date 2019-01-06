@@ -60,6 +60,7 @@ public class SUVRecommendation {
     	private JLabel questionLabel;
     	private JButton answers[];
     	private Question question;
+    	ArrayList<String> answersNames;
     	
     	public SUVRecommendationUI(Question q)
     	{
@@ -72,7 +73,7 @@ public class SUVRecommendation {
     		
 			this.add(questionLabel);
 			
-			ArrayList<String> answersNames=question.getAnswers();
+			answersNames=question.getAnswers();
 			
 			for(int i=0;i<question.getNumberOfAnswers();i++) {
 				answers[i] = new JButton(answersNames.get(i));
@@ -105,7 +106,7 @@ public class SUVRecommendation {
 		public void actionPerformed(ActionEvent e) {
 			for(int i=0;i<question.getNumberOfAnswers();i++) {
 				if(e.getSource() == answers[i]){
-					question.setChosen(i);
+					question.setChosen(answersNames.get(i));
 					question.setGotAnswer(true);
 				}
 			}
@@ -126,44 +127,32 @@ public class SUVRecommendation {
     	private String question;
     	private int numberOfAnswers;
     	private ArrayList<String> answers;
-    	public boolean gotResult;
-    	private String result;
-    	public int chosen;
-    	public int questionID;
+    	public String chosen;
     	private boolean gotAnswer;
     	
     	public Question() {
     		answers=new ArrayList<String>();
-    		gotResult=false;
     		gotAnswer=false;
     	}
     	
-    	public Question(String q, int n, ArrayList<String> a, boolean g, int c,int i) {
+    	public Question(String q, int n, ArrayList<String> a, String c) {
     		answers=new ArrayList<String>();
     		question=q;
     		numberOfAnswers=n;
     		answers=a;
-    		gotResult=g;
     		chosen=c;
-    		questionID=i;
     	}
     	
     	
-    	public void setValues(String q, int n, ArrayList<String> a, boolean g, int c,int i) {
+    	public void setValues(String q, int n, ArrayList<String> a, String c) {
     		question=q;
     		numberOfAnswers=n;
     		answers=a;
-    		gotResult=g;
-    		chosen=c;
-    		questionID=i;
-    	}
-    	
-    	public void setChosen(int c) {
     		chosen=c;
     	}
     	
-    	public void setResult(String r) {
-    		result=r;
+    	public void setChosen(String c) {
+    		chosen=c;
     	}
     	
     	public String getQuestion() {
@@ -176,10 +165,6 @@ public class SUVRecommendation {
     	
     	public ArrayList<String> getAnswers() {
     		return answers;
-    	}
-    	
-    	public boolean getGotResult() {
-    		return gotResult;
     	}
     	
     	public void setGotAnswer(boolean ga) {
