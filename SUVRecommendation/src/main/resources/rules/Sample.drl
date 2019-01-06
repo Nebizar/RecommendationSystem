@@ -20,7 +20,7 @@ end
  
 rule "Not off road"
     when
-        q: Question(chosen==0, questionID==0);
+        q: Question(chosen.equals("Not if I can help it"));
     then
         ArrayList <String> answers = new ArrayList<String>();
        	answers.add("I like the style");
@@ -37,7 +37,7 @@ end
 
 rule "Style"
     when
-        q: Question(chosen==0, questionID==1);
+        q: Question(chosen.equals("I like the style"));
     then
         ArrayList <String> answers = new ArrayList<String>();
        	answers.add("I guess I want a giant mini");
@@ -53,7 +53,7 @@ end
 
 rule "Ford Flex"
     when
-        q: Question(chosen==0, questionID==2);
+        q: Question(chosen.equals("I guess I want a giant mini"));
     then
         ArrayList <String> answers = new ArrayList<String>();
        	answers.add("But much less useful");
@@ -66,7 +66,7 @@ end
 
 rule "Mini Peaceman"
     when
-        q: Question(gotResult, questionID==3);
+        q: Question(chosen.equals("But much less useful"));
     then
         ArrayList <String> answers = new ArrayList<String>();
         Question newQuestion = new Question("Mini Peaceman",0,answers,"");
@@ -76,7 +76,7 @@ end
 
 rule "Volvo XC60"
     when
-        q: Question(chosen==2, questionID==1);
+        q: Question(chosen.equals("Big makes me feel safe"));
     then
         ArrayList <String> answers = new ArrayList<String>();
         Question newQuestion = new Question("Volvo XC60",0,answers,"");
@@ -86,7 +86,7 @@ end
 
 rule "Not really"
     when
-        q: Question(chosen==3, questionID==1);
+        q: Question(chosen.equals("Maybe I'll go off road?"));
     then
         ArrayList <String> answers = new ArrayList<String>();
        	answers.add("No, fuck it. Gimme an EV.");
@@ -99,7 +99,7 @@ end
 
 rule "Toyota RAV4 EV"
     when
-        q: Question(gotResult, questionID==4);
+        q: Question(chosen.equals("No, fuck it. Gimme an EV."));
     then
         ArrayList <String> answers = new ArrayList<String>();
         Question newQuestion = new Question("Toyota RAV4 EV",0,answers,"");
@@ -109,7 +109,7 @@ end
 
 rule "For work"
     when
-        q: Question(chosen==2, questionID==0);
+        q: Question(chosen.equals("Sometimes for work"));
     then
         ArrayList <String> answers = new ArrayList<String>();
        	answers.add("Camera car driver");
@@ -123,7 +123,7 @@ end
 
 rule "Porsche Cayenne Diesel"
     when
-        q: Question(chosen==0, gotResult, questionID==5);
+        q: Question(chosen.equals("Camera car driver"));
     then
         ArrayList <String> answers = new ArrayList<String>();
         Question newQuestion = new Question("Porsche Cayenne Diesel",0,answers,"");
@@ -133,7 +133,7 @@ end
 
 rule "Hard hats man"
     when
-        q: Question(chosen==1, gotResult, questionID==5);
+        q: Question(chosen.equals("Man stuff with hard hats"));
     then
         ArrayList <String> answers = new ArrayList<String>();
         Question newQuestion = new Question("Chevy Suburban, Ford Expedition",0,answers,"");
@@ -143,7 +143,7 @@ end
 
 rule "Cartoon cars"
     when
-        q: Question(chosen==1, questionID==2);
+        q: Question(chosen.equals("I'm into cartoonish looking giant-wheeled hatchbacks"));
     then
         ArrayList <String> answers = new ArrayList<String>();
         Question newQuestion = new Question("Honda Crosstour, BMW X6",0,answers,"");
@@ -153,7 +153,7 @@ end
 
 rule "Tough"
     when
-        q: Question(chosen==2, questionID==2);
+        q: Question(chosen.equals("They make me feel tough"));
     then
         ArrayList <String> answers = new ArrayList<String>();
        	answers.add("Like a government official");
@@ -170,7 +170,7 @@ end
 
 rule "Government official"
     when
-        q: Question(chosen==0, questionID==6);
+        q: Question(chosen.equals("Like a government official"));
     then
         ArrayList <String> answers = new ArrayList<String>();
         Question newQuestion = new Question("Chevy Tahoe, Cadillac Escalade",0,answers,"");
@@ -180,7 +180,7 @@ end
 
 rule "Rich and important"
     when
-        q: Question(chosen==1, questionID==6);
+        q: Question(chosen.equals("Like I'm rich and important"));
     then
         ArrayList <String> answers = new ArrayList<String>();
         Question newQuestion = new Question("Lexus L X, Range Rover Sport",0,answers,"");
@@ -190,7 +190,7 @@ end
 
 rule "Exclusive"
     when
-        q: Question(chosen==2, questionID==6);
+        q: Question(chosen.equals("Like I'm exclusive"));
     then
         ArrayList <String> answers = new ArrayList<String>();
        	answers.add("Lamborghini Ursus");
@@ -204,7 +204,7 @@ end
 
 rule "Lamborghini Ursus"
     when
-        q: Question(chosen==0, questionID==7);
+        q: Question(chosen.equals("Lamborghini Ursus"));
     then
         ArrayList <String> answers = new ArrayList<String>();
         Question newQuestion = new Question("Lamborghini Ursus",0,answers,"");
@@ -214,7 +214,7 @@ end
 
 rule "Audi Q7"
     when
-        q: Question(chosen==1, questionID==7);
+        q: Question(chosen.equals("I don't wanna wait forever"));
     then
         ArrayList <String> answers = new ArrayList<String>();
         Question newQuestion = new Question("Audi Q7",0,answers,"");
@@ -224,7 +224,7 @@ end
 
 rule "Lincoln Navigator"
     when
-        q: Question(chosen==3, questionID==6);
+        q: Question(chosen.equals("Like I'm a little famous and tasteless"));
     then
         ArrayList <String> answers = new ArrayList<String>();
         Question newQuestion = new Question("Lincoln Navigator",0,answers,"");
@@ -234,7 +234,7 @@ end
 
 rule "Infiniti QX56"
     when
-        q: Question(chosen==4, questionID==6);
+        q: Question(chosen.equals("Like I'm erotically drawn to a cyborg bull"));
     then
         ArrayList <String> answers = new ArrayList<String>();
         Question newQuestion = new Question("Infiniti QX56",0,answers,"");
@@ -244,7 +244,7 @@ end
 
 rule "Vehicross"
     when
-        q: Question(chosen==3, questionID==2);
+        q: Question(chosen.equals("I always wanted a vehicross"));
     then
         ArrayList <String> answers = new ArrayList<String>();
        	answers.add("Also, I'm rich");
@@ -259,7 +259,7 @@ end
 
 rule "Rich"
     when
-        q: Question(chosen==0, questionID==8);
+        q: Question(chosen.equals("Also, I'm rich"));
     then
         ArrayList <String> answers = new ArrayList<String>();
         Question newQuestion = new Question("Range Rover Evoque, Maserati Kubang",0,answers,"");
@@ -269,7 +269,7 @@ end
 
 rule "Nissan Rogue"
     when
-        q: Question(chosen==1, questionID==8);
+        q: Question(chosen.equals("Also, I'm cheap"));
     then
         ArrayList <String> answers = new ArrayList<String>();
         Question newQuestion = new Question("Nissan Rogue",0,answers,"");
@@ -279,7 +279,7 @@ end
 
 rule "Nissan Murano Cross Cabriolet"
     when
-        q: Question(chosen==2, questionID==8);
+        q: Question(chosen.equals("Also, I want it to be a convertible that makes no sense whatsoever"));
     then
         ArrayList <String> answers = new ArrayList<String>();
         Question newQuestion = new Question("Nissan Murano Cross Cabriolet",0,answers,"");
@@ -289,7 +289,7 @@ end
 
 rule "Not minivan"
     when
-        q: Question(chosen==1, questionID==1);
+        q: Question(chosen.equals("Got kids, don't want minivan"));
     then
         ArrayList <String> answers = new ArrayList<String>();
        	answers.add("I want something fun to drive");
@@ -304,7 +304,7 @@ end
 
 rule "Something fun"
     when
-        q: Question(chosen==0, questionID==9);
+        q: Question(chosen.equals("I want something fun to drive"));
     then
         ArrayList <String> answers = new ArrayList<String>();
         Question newQuestion = new Question("Mazda CX-5, BMW X6M",0,answers,"");
@@ -314,7 +314,7 @@ end
 
 rule "Stigma"
     when
-        q: Question(chosen==1, questionID==9);
+        q: Question(chosen.equals("Just some general stigma thing"));
     then
         ArrayList <String> answers = new ArrayList<String>();
         Question newQuestion = new Question("Hyundai Tucson, Kia Sportage, Acura MDX",0,answers,"");
@@ -324,7 +324,7 @@ end
 
 rule "Too big"
     when
-        q: Question(chosen==2, questionID==9);
+        q: Question(chosen.equals("They're too damn big"));
     then
         ArrayList <String> answers = new ArrayList<String>();
         Question newQuestion = new Question("Honda CR-V, Toyota RAV4",0,answers,"");
@@ -334,7 +334,7 @@ end
 
 rule "What things"
     when
-        q: Question(chosen==4, questionID==1);
+        q: Question(chosen.equals("I want to do things, I can't do in a car"));
     then
         ArrayList <String> answers = new ArrayList<String>();
        	answers.add("Drive fast in something really tall");
@@ -351,7 +351,7 @@ end
 
 rule "Fast and tall"
     when
-        q: Question(chosen==0, questionID==10);
+        q: Question(chosen.equals("Drive fast in something really tall"));
     then
         ArrayList <String> answers = new ArrayList<String>();
         Question newQuestion = new Question("Jeep Grand Cherokee SRT8, Nissan Juke R",0,answers,"");
@@ -361,7 +361,7 @@ end
 
 rule "Porsche Cayenne"
     when
-        q: Question(chosen==1, questionID==10);
+        q: Question(chosen.equals("Drive something so 911s can still be made"));
     then
         ArrayList <String> answers = new ArrayList<String>();
         Question newQuestion = new Question("Porsche Cayenne",0,answers,"");
@@ -371,7 +371,7 @@ end
 
 rule "Hyundai Santa FE LTD"
     when
-        q: Question(chosen==2, questionID==10);
+        q: Question(chosen.equals("Drive six people all in pilot's chairs"));
     then
         ArrayList <String> answers = new ArrayList<String>();
         Question newQuestion = new Question("Hyundai Santa FE LTD",0,answers,"");
@@ -381,7 +381,7 @@ end
 
 rule "Subaru XV Crosstrek"
     when
-        q: Question(chosen==3, questionID==10);
+        q: Question(chosen.equals("Go antiquing off-road in an orange car"));
     then
         ArrayList <String> answers = new ArrayList<String>();
         Question newQuestion = new Question("Subaru XV Crosstrek",0,answers,"");
@@ -391,7 +391,7 @@ end
 
 rule "VW Touareg"
     when
-        q: Question(chosen==4, questionID==10);
+        q: Question(chosen.equals("Drive something unpronouncable"));
     then
         ArrayList <String> answers = new ArrayList<String>();
         Question newQuestion = new Question("VW Touareg",0,answers,"");
@@ -401,7 +401,7 @@ end
 
 rule "Off road"
     when
-        q: Question(chosen==1, questionID==0);
+        q: Question(chosen.equals("Roads are for choads"));
     then
         ArrayList <String> answers = new ArrayList<String>();
        	answers.add("Rally");
@@ -418,7 +418,7 @@ end
 
 rule "Rally"
     when
-        q: Question(chosen==0, questionID==11);
+        q: Question(chosen.equals("Rally"));
     then
         ArrayList <String> answers = new ArrayList<String>();
        	answers.add("As far as you know");
@@ -432,7 +432,7 @@ end
 
 rule "Underdogs"
     when
-        q: Question(chosen==0, questionID==12);
+        q: Question(chosen.equals("As far as you know"));
     then
         ArrayList <String> answers = new ArrayList<String>();
        	answers.add("Ya got me");
@@ -445,7 +445,7 @@ end
 
 rule "Mitsubishi Outlander Sport"
     when
-        q: Question(chosen==0, questionID==13);
+        q: Question(chosen.equals("Ya got me"));
     then
         ArrayList <String> answers = new ArrayList<String>();
         Question newQuestion = new Question("Mitsubishi Outlander Sport",0,answers,"");
@@ -455,7 +455,7 @@ end
 
 rule "VW Tiguan"
     when
-        q: Question(chosen==1, questionID==12);
+        q: Question(chosen.equals("I pretend, okay?"));
     then
         ArrayList <String> answers = new ArrayList<String>();
         Question newQuestion = new Question("VW Tiguan",0,answers,"");
@@ -465,7 +465,7 @@ end
 
 rule "School"
     when
-        q: Question(chosen==1, questionID==11);
+        q: Question(chosen.equals("Be awesome, oh and I'm super-rich"));
     then
         ArrayList <String> answers = new ArrayList<String>();
        	answers.add("Old is gold");
@@ -479,7 +479,7 @@ end
 
 rule "Icons"
     when
-        q: Question(chosen==0, questionID==14);
+        q: Question(chosen.equals("Old is gold"));
     then
         ArrayList <String> answers = new ArrayList<String>();
         Question newQuestion = new Question("Icon BR, Icon FJ",0,answers,"");
@@ -489,7 +489,7 @@ end
 
 rule "Local Motors Rally Fighter"
     when
-        q: Question(chosen==1, questionID==14);
+        q: Question(chosen.equals("New new new"));
     then
         ArrayList <String> answers = new ArrayList<String>();
         Question newQuestion = new Question("Local Motors Rally Fighter",0,answers,"");
@@ -499,7 +499,7 @@ end
 
 rule "Winshields"
     when
-        q: Question(chosen==2, questionID==11);
+        q: Question(chosen.equals("Climb rocks and make Youtube videos"));
     then
         ArrayList <String> answers = new ArrayList<String>();
        	answers.add("Only if I have 3 wipers");
@@ -513,7 +513,7 @@ end
 
 rule "Toyota FJ Cruiser"
     when
-        q: Question(chosen==0, questionID==15);
+        q: Question(chosen.equals("Only if I have 3 wipers"));
     then
         ArrayList <String> answers = new ArrayList<String>();
         Question newQuestion = new Question("Toyota FJ Cruiser",0,answers,"");
@@ -523,7 +523,7 @@ end
 
 rule "Flat"
     when
-        q: Question(chosen==1, questionID==15);
+        q: Question(chosen.equals("The flatter the better"));
     then
         ArrayList <String> answers = new ArrayList<String>();
        	answers.add("Old is gold");
@@ -536,7 +536,7 @@ end
 
 rule "Haul ass"
     when
-        q: Question(chosen==3, questionID==11);
+        q: Question(chosen.equals("Go camping, eat granola or deer meat"));
     then
         ArrayList <String> answers = new ArrayList<String>();
        	answers.add("Oh God yes");
@@ -550,7 +550,7 @@ end
 
 rule "Yeah"
     when
-        q: Question(chosen==0, questionID==16);
+        q: Question(chosen.equals("Oh God yes"));
     then
         ArrayList <String> answers = new ArrayList<String>();
         Question newQuestion = new Question("Mercedes G63 AMG, Hennessey Vlociraptor",0,answers,"");
@@ -560,7 +560,7 @@ end
 
 rule "Bear lover"
     when
-        q: Question(chosen==1, questionID==16);
+        q: Question(chosen.equals("Why? It's beautiful out there with the bears"));
     then
         ArrayList <String> answers = new ArrayList<String>();
         Question newQuestion = new Question("Subaru Forester, Nissan Xterra, Toyota Sequoia",0,answers,"");
@@ -570,7 +570,7 @@ end
 
 rule "Expedition destinations"
     when
-        q: Question(chosen==4, questionID==11);
+        q: Question(chosen.equals("Undertake expeditions"));
     then
         ArrayList <String> answers = new ArrayList<String>();
        	answers.add("You know, the Arctic, across Africa, Nepal");
@@ -584,7 +584,7 @@ end
 
 rule "Real deal"
     when
-        q: Question(chosen==0, questionID==17);
+        q: Question(chosen.equals("You know, the Arctic, across Africa, Nepal"));
     then
         ArrayList <String> answers = new ArrayList<String>();
         Question newQuestion = new Question("Land Rover LR4, Toyota Land Cruiser",0,answers,"");
@@ -594,7 +594,7 @@ end
 
 rule "Boobies"
     when
-        q: Question(chosen==1, questionID==17);
+        q: Question(chosen.equals("The beach where you can see boobs"));
     then
         ArrayList <String> answers = new ArrayList<String>();
         Question newQuestion = new Question("GMC Yukon, Ford Explorer, Jeep Patriot",0,answers,"");
